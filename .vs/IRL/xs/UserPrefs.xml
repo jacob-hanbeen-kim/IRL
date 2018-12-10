@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{BB2F3C26-D12E-4973-F7AF-63935D834F5F}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/robotMovementScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/DontGoThroughThings.cs">
     <Files>
-      <File FileName="Assets/robotMovementScript.cs" Line="52" Column="1" />
-      <File FileName="Assets/GizmosController.cs" Line="12" Column="100" />
-      <File FileName="Assets/DontGoThroughThings.cs" Line="24" Column="47" />
-      <File FileName="Assets/GameManagerScript.cs" Line="37" Column="1" />
+      <File FileName="Assets/robotMovementScript.cs" Line="10" Column="36" />
+      <File FileName="Assets/DontGoThroughThings.cs" Line="65" Column="11" />
+      <File FileName="Assets/GizmosController.cs" Line="30" Column="37" />
+      <File FileName="Assets/GameManagerScript.cs" Line="64" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

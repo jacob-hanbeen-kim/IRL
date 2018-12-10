@@ -62,12 +62,14 @@ public class DontGoThroughThings : MonoBehaviour
         }
 
         previousPosition = myRigidbody.position;
+        //transform.position = new Vector3(transform.position.x, transform.position.y, 1);
 
-
+        /*
         if (rigidbody.velocity.magnitude > maxSpeed) {
             rigidbody.velocity = lastSpeed;
         } else {
             lastSpeed = rigidbody.velocity;
         }
+        */
     }
 }

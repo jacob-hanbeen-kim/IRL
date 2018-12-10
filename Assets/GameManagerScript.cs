@@ -8,16 +8,20 @@ public class GameManagerScript : MonoBehaviour {
     public GameObject[] vegitables;
     public GameObject wrist;
     public GameObject pan;
+    public GameObject menu;
 
     private StreamReader reader;
     private bool simulate;
     private string coord;
     private float time;
+    private bool paused;
 
     // Use this for initialization
     void Start () {
         simulate = false;
-	}
+        paused = false;
+        menu.SetActive(false);
+    }
 
     private void FixedUpdate()
     {
@@ -27,8 +31,21 @@ public class GameManagerScript : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            if (paused) {
+                Time.timeScale = 1;
+            } else {
+                Time.timeScale = 0;
+            }
+
+            paused = !paused;
+        }
+        if (Input.GetKeyDown(KeyCode.R)) {
+            menu.SetActive(false);
+            Time.timeScale = 1;
             SceneManager.LoadScene("Demo 4");
+        }
+
         else if (Input.GetKeyDown(KeyCode.W))
         {
             wrist.GetComponent<Rigidbody>().AddForce(Vector3.up * Time.deltaTime);
