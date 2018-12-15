@@ -17,9 +17,6 @@ public class DontGoThroughThings : MonoBehaviour
     private Rigidbody myRigidbody;
     private Collider myCollider;
 
-    private Rigidbody rigidbody;
-    private float maxSpeed = 8.0f;
-    private Vector3 lastSpeed;
 
     //initialize values 
     void Start()
@@ -31,8 +28,6 @@ public class DontGoThroughThings : MonoBehaviour
         partialExtent = minimumExtent * (1.0f - skinWidth);
         sqrMinimumExtent = minimumExtent * minimumExtent;
 
-        rigidbody = GetComponent<Rigidbody>();
-        lastSpeed = rigidbody.velocity;
     }
 
     void FixedUpdate()
@@ -64,12 +59,5 @@ public class DontGoThroughThings : MonoBehaviour
         previousPosition = myRigidbody.position;
         //transform.position = new Vector3(transform.position.x, transform.position.y, 1);
 
-        /*
-        if (rigidbody.velocity.magnitude > maxSpeed) {
-            rigidbody.velocity = lastSpeed;
-        } else {
-            lastSpeed = rigidbody.velocity;
-        }
-        */
     }
 }

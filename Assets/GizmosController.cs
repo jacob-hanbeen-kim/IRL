@@ -14,6 +14,7 @@ public class GizmosController : MonoBehaviour
     private float constZ;
 
     private StreamWriter writer;
+    private StreamWriter writer2;
     private StreamReader reader;
     private float time;
 
@@ -102,6 +103,10 @@ public class GizmosController : MonoBehaviour
         string path = "./data.txt";
         var stream = new FileStream(path, FileMode.Truncate);
         writer = new StreamWriter(stream);
+
+        string path2 = "./simulate.txt";
+        var stream2 = new FileStream(path2, FileMode.Truncate);
+        writer2 = new StreamWriter(stream2);
 
         lastPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, constZ));
     }
@@ -214,12 +219,18 @@ public class GizmosController : MonoBehaviour
             newPos.y = minPosY;
         }
 
+        string write2 = newPos + "";
+        write2 = write2.Substring(1, write2.Length - 2) + ", " + (Time.timeSinceLevelLoad - time);
+
+        writer2.WriteLine(write2);
+
         transform.position = newPos;
         lastPos = curPos;
     }
 
     private void OnMouseUp()
     {
+        writer2.Close();
         Debug.Log("IN");
         demoEnd = true;
     }

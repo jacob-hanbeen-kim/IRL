@@ -6,9 +6,9 @@ using System.Text.RegularExpressions;
 public class GameManagerScript : MonoBehaviour {
 
     public GameObject[] vegitables;
-    public GameObject wrist;
     public GameObject pan;
     public GameObject menu;
+    public GameObject cbamenu;
 
     private StreamReader reader;
     private bool simulate;
@@ -45,15 +45,6 @@ public class GameManagerScript : MonoBehaviour {
             Time.timeScale = 1;
             SceneManager.LoadScene("Demo 4");
         }
-
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            wrist.GetComponent<Rigidbody>().AddForce(Vector3.up * Time.deltaTime);
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            wrist.GetComponent<Rigidbody>().AddForce(-Vector3.up * Time.deltaTime);
-        }
         else if (Input.GetKeyDown(KeyCode.A)) {
             int rand = Random.Range(0, vegitables.Length);
             GameObject newVegie = vegitables[rand];
@@ -71,13 +62,14 @@ public class GameManagerScript : MonoBehaviour {
             if (hasNext())
             {
                 //Debug.Log("Speed: " + ((getCoord() - pan.transform.position) / getTime()));
+
                 pan.transform.position = Vector3.Lerp(pan.transform.position, getCoord(), getTime());
             }
         }
     }
 
     void OpenFile() {
-        string path = "./data.txt";
+        string path = "./simulate.txt";
         reader = new StreamReader(path);
         Debug.Log("Opened reader...");
     }
